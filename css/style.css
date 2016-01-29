@@ -1,0 +1,33 @@
+ul {
+    list-style-type: none;
+}
+
+li:hover {
+    background-color: #6495ed;
+}
+
+.cat-list-item {
+    display: block;
+    width: 125px;
+    background-color: #d3d3d3;
+    padding: 2px;
+    margin: 3px;
+}
+
+#cat-image-wrapper {
+    display: block;
+    width: 200px;
+    height: 125px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#cat-image {
+    max-width: 100%;
+    height: auto;
+}
+
+#counter {
+    font-size: 25px;
+    font-weight: bold;
+}
