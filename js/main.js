@@ -5,8 +5,6 @@ $(function(){
         currentCat: null,
 
         init: function() {
-            // each of these cats has to be hard-coded - would the ideal be to create an object for each image path,
-            // which would be given to this function by some back end thingy?
             this.catArray = [
                 {name: 'cat1', imagePath: 'images/kitten.jpg', clickCount: 0},
                 {name: 'cat2', imagePath: 'images/kitten2.jpg', clickCount: 0},
@@ -65,16 +63,17 @@ $(function(){
 
         init: function() {
             this.catList = $('.cat-list');
-            this.render(this.catList);
+            this.render();
         },
 
-        render: function(catList) {  // why can't I just access this.catList within this function??
+        render: function() {
+            var that = this;
             octopus.getAllCats().forEach(function(catObj) {
                 var $elem = $('<li class="cat-list-item"></li>');
                 $elem.attr('id', catObj.name);
                 $elem.html(catObj.name);
-                viewList.addClickHandler($elem, catObj); // why doesn't "this.addClickHandler" work here?
-                $(catList).append($elem);
+                that.addClickHandler($elem, catObj);
+                $(that.catList).append($elem);
             });
         },
 
@@ -91,29 +90,23 @@ $(function(){
     var viewCat = {
 
         init: function() {
-            this.catViewArea = $('#cat-viewing-area')[0];
-            this.counter = $('#counter')[0];
-            this.wrapper = $('#cat-image-wrapper')[0];
-            this.imgDiv = $('#cat-image')[0]; // Why is jQuery selector returning array?
+            this.$counter = $('#counter');
+            this.$imgDiv = $('#cat-image');
 
-            this.imgDiv.addEventListener('click', function(e) {
+            this.$imgDiv.click(function() {
                 octopus.incrementClickCount();
             });
         },
 
         renderCat: function() {
             var currentCat = octopus.getCurrentCat();
-            this.catViewArea.innerHTML = '';
             var img_src = currentCat.imagePath;
-            this.imgDiv.setAttribute('src', img_src);
-            this.wrapper.appendChild(this.imgDiv);
-            this.catViewArea.appendChild(this.wrapper);
+            this.$imgDiv.attr('src', img_src);
         },
 
         renderCounter: function() {
             var count = octopus.getCurrentCat().clickCount;
-            this.counter.innerHTML = '';
-            this.counter.innerHTML = count;
+            this.$counter.html(count);
         }
     };
 
