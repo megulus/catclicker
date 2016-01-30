@@ -92,6 +92,7 @@ $(function(){
         init: function() {
             this.$counter = $('#counter');
             this.$imgDiv = $('#cat-image');
+            this.$catName = $('#cat-name');
 
             this.$imgDiv.click(function() {
                 octopus.incrementClickCount();
@@ -102,6 +103,7 @@ $(function(){
             var currentCat = octopus.getCurrentCat();
             var img_src = currentCat.imagePath;
             this.$imgDiv.attr('src', img_src);
+            this.$catName.html(currentCat.name);
         },
 
         renderCounter: function() {
