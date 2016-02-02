@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Cat Clicker Redux!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="container">
     <div class="row">
         <div class="col-md-2">
             <ul class="cat-list"></ul>
@@ -21,7 +23,46 @@
             <div id="counter"></div>
         </div>
     </div>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-default" id="show-admin">Admin</button>
+        </div>
+        <div class="col-md-10" id="admin-view">
+            <div class="row">
+                <div class="col-md-10 admin-input">
+                    <form id="name-input">
+                        <!--<input>-->
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 admin-input">
+                    <form id="url-input">
+                        <!--<input>-->
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 admin-input">
+                   <form id="count-input">
+                        <!--<input>-->
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10 admin-submit">
+                    <form id="cancel-button">
+                        <!--<button type="button" class="btn btn-default">C</button>-->
+                    </form>
+                    <form id="save-button">
+                        <!--<button type="button" class="btn btn-default">S</button>-->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
